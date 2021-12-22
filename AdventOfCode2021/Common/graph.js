@@ -31,7 +31,7 @@ export class Graph
 
         delete this.nodes[idToDelete];
 
-        for (const [id, node] of Object.entries(this))
+        for (const [id, node] of Object.entries(this.nodes))
         {
             node.connections = node.connections.filter(x => x.id != id);
         }
@@ -43,5 +43,12 @@ export class Graph
         const node2 = this.nodes[id2];
         node1.connections.push({ node: node2, cost: cost });
         node2.connections.push({ node: node1, cost: cost });
+    }
+
+    connectDirected(from, to, cost = 1)
+    {
+        const nodeFrom = this.nodes[from];
+        const nodeTo = this.nodes[to];
+        nodeFrom.connections.push({ node: nodeTo, cost: cost });
     }
 }

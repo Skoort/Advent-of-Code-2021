@@ -1,4 +1,4 @@
-import { Graph } from './graph.js';
+import { Graph } from './../Common/graph.js';
 import { Navigator } from './navigator.js';
 
 let input = `
